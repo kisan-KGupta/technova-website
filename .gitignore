@@ -1,0 +1,9 @@
+# System & Editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Node / Scratch
+node_modules/
+*.tmp

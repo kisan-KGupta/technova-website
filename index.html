@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechNova Solutions — Next-Gen 3D Simulation & Enterprise Safety Training</title>
+  <meta name="description" content="TechNova Solutions delivers browser-native 3D simulations and cognitive safety training for high-risk enterprise logistics and industrial operations.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;600&family=Plus+Jakarta+Sans:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- Three.js for Interactive 3D Hero Simulation Canvas -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+
+  <!-- Navigation Bar -->
+  <header class="navbar" id="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="brand-logo" id="nav-brand-logo" aria-label="TechNova Solutions — Return to Top">
+        <img src="technova-logo-dark.svg" alt="TechNova Solutions Logo" class="brand-logo-img" width="180" height="52" />
+      </a>
+
+      <nav class="nav-links">
+        <a href="#services" class="nav-link">Services</a>
+        <a href="#project-video" class="nav-link">Promo Video</a>
+        <a href="#case-study" class="nav-link">Case Study</a>
+        <a href="#about" class="nav-link">About TechNova</a>
+        <a href="#technology" class="nav-link">Technology</a>
+        <a href="#team" class="nav-link">Team</a>
+      </nav>
+
+      <div class="nav-cta-group">
+        <button class="theme-toggle-btn" id="theme-toggle" aria-label="Toggle Light and Dark Mode" title="Toggle Light/Dark Theme">
+          <svg class="sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+        <a href="#contact" class="btn btn-primary" id="btn-book-demo">Book B2B Consultation</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section" id="hero">
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+    <div class="container hero-grid">
+      <div class="hero-content">
+        <div class="hero-pill">
+          <span class="pulse-dot"></span>
+          <span>B2B Enterprise Simulation & Cognitive Safety</span>
+        </div>
+        <h1 class="hero-title">
+          Next-Generation <span class="gradient-text">3D Web Simulations</span> for Workplace Safety
+        </h1>
+        <p class="hero-subtext">
+          TechNova engineers zero-install, browser-native 3D training simulations that test critical human factors—training workers to overcome authority bias, identify complex hazards, and protect operational integrity.
+        </p>
+        <div class="hero-cta-row">
+          <a href="#case-study" class="btn btn-primary btn-large">
+            <span>Explore Case Study</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#project-video" class="btn btn-secondary btn-large" id="hero-watch-video-btn" aria-label="Watch Two Pairs of Eyes Promotional Video">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true" style="margin-right: 8px;"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            <span>Watch Project Video</span>
+          </a>
+        </div>
+        <p class="hero-subcta-note">
+          Enterprise or academic inquiry? <a href="#contact">Schedule a consultation &rarr;</a>
+        </p>
+
+        <div class="hero-trust-metrics">
+          <div class="trust-metric">
+            <span class="metric-number">100%</span>
+            <span class="metric-label">Browser Native (No VR Setup)</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-metric">
+            <span class="metric-number">60 FPS</span>
+            <span class="metric-label">Hardware-Accelerated WebGL</span>
+          </div>
+          <div class="trust-divider"></div>
+          <div class="trust-metric">
+            <span class="metric-number">LMS Ready</span>
+            <span class="metric-label">Planned xAPI / SCORM Export</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- 3D Interactive Canvas Preview Card -->
+      <div class="hero-visual">
+        <div class="canvas-card glass-panel">
+          <div class="canvas-card-header">
+            <div class="window-dots">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+            </div>
+            <div class="canvas-title">
+              <span class="live-tag">LIVE 3D WEBGL ENGINE</span>
+              <span>Warehouse Hazard Simulation Stream</span>
+            </div>
+            <div class="fps-counter" id="fps-display">60 FPS</div>
+          </div>
+          <div class="canvas-wrapper" id="canvas-container">
+            <!-- Three.js Canvas Injected Here -->
+            <div class="canvas-overlay-ui">
+              <div class="env-switcher-group" id="env-switcher-group">
+                <button class="env-chip-btn active" data-env="storage" title="High-Bay Storage Warehouse">Storage Bay</button>
+                <button class="env-chip-btn" data-env="hazard" title="Hazard Inspection Zone">Hazard Zone</button>
+                <button class="env-chip-btn" data-env="staging" title="Logistics & Staging Hub">Staging Hub</button>
+              </div>
+              <div class="interactive-chip">
+                <span class="chip-dot"></span> 360° Observational Orbit & Zoom
+              </div>
+              <div class="hazard-alert-pill" id="hazard-demo-alert">
+                <span class="alert-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                </span>
+                <span>Active Scenario: Instanced High-Bay Inspection</span>
+              </div>
+            </div>
+          </div>
+          <div class="canvas-card-footer">
+            <div class="telemetry-badge">
+              <span class="label">Engine:</span> Three.js / WebGL 2.0
+            </div>
+            <div class="telemetry-badge">
+              <span class="label">Target:</span> 60 FPS Browser
+            </div>
+            <div class="telemetry-badge">
+              <span class="label">Framework:</span> HASAW 1974 Principles
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Trust & Industry Logos Bar -->
+  <section class="trust-bar-section">
+    <div class="container">
+      <p class="trust-bar-heading">BUILT FOR HIGH-STAKES ENTERPRISE OPERATIONS</p>
+      <div class="trust-logos">
+        <div class="trust-logo-item">LOGISTICS & 3PL</div>
+        <div class="trust-logo-item">ADVANCED MANUFACTURING</div>
+        <div class="trust-logo-item">GLOBAL SUPPLY CHAIN</div>
+        <div class="trust-logo-item">EHS CONSULTING FIRMS</div>
+        <div class="trust-logo-item">DISTRIBUTION NETWORKS</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Services Section -->
+  <section class="section services-section" id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">OUR B2B CAPABILITIES</div>
+        <h2 class="section-title">Enterprise Software & Simulation Services</h2>
+        <p class="section-subtitle">
+          From custom WebGL virtual twin development to deep behavioral telemetry, TechNova delivers turnkey solutions engineered for measurable risk reduction.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Service 1 -->
+        <div class="service-card glass-panel">
+          <div class="service-icon icon-cyan">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/><polyline points="3.27 6.96 12 12.01 20.73 6.96"/><line x1="12" y1="22.08" x2="12" y2="12"/></svg>
+          </div>
+          <h3 class="service-title">Custom 3D WebGL Simulation</h3>
+          <p class="service-desc">
+            Bespoke 3D spatial environments accurately reflecting your warehouse, production lines, and high-risk zones. 100% accessible via web browsers with zero installation friction.
+          </p>
+          <ul class="service-features">
+            <li>Photorealistic spatial lighting & PBR materials</li>
+            <li>Optimized polygon pipelines for 60fps performance</li>
+            <li>WASD / Mouse and mobile touch control schemes</li>
+          </ul>
+        </div>
+
+        <!-- Service 2 -->
+        <div class="service-card glass-panel">
+          <div class="service-icon icon-blue">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+          </div>
+          <h3 class="service-title">Behavioral & Authority Bias Modeling</h3>
+          <p class="service-desc">
+            Simulate realistic workplace social dynamics. Train junior workers to challenge dismissive supervisors, resist operational shortcuts, and assert independent safety protocols.
+          </p>
+          <ul class="service-features">
+            <li>Branching supervisor dialogue trees</li>
+            <li>Compound risk modeling & deferred consequences</li>
+            <li>Psychological fidelity validated by HCI frameworks</li>
+          </ul>
+        </div>
+
+        <!-- Service 3 -->
+        <div class="service-card glass-panel">
+          <div class="service-icon icon-amber">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+          </div>
+          <h3 class="service-title">Telemetry & Planned LMS Integration</h3>
+          <p class="service-desc">
+            Turn safety simulations into structured behavioral audit data. TechNova logs granular trainee assertion decisions in real time, with modular xAPI and SCORM schemas planned for enterprise LMS pipelines.
+          </p>
+          <ul class="service-features">
+            <li>Real-time assertion telemetry & time-to-assert tracking (Implemented)</li>
+            <li>Planned SCORM 1.2 / 2004 & xAPI modular export pipeline</li>
+            <li>Designed for UK Health & Safety at Work Act (HASAW 1974) audit readiness</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Case Study: Two Pairs of Eyes -->
+  <section class="section case-study-section" id="case-study">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">FEATURED PROJECT · CET257 TASK B2</div>
+        <h2 class="section-title">Two Pairs of Eyes — Fresh Eyes. Safer Choices.</h2>
+        <p class="section-subtitle">
+          An interactive, browser-based 3D warehouse safety training experience designed to dismantle authority bias and instill critical decision-making reflexes.
+        </p>
+      </div>
+
+      <!-- Project Architecture & Specifications Strip -->
+      <div class="project-spec-strip">
+        <div class="project-spec-item">
+          <span class="spec-label">Simulation Engine</span>
+          <span class="spec-value">Three.js / WebGL 2.0</span>
+        </div>
+        <div class="project-spec-item">
+          <span class="spec-label">Scenario Environment</span>
+          <span class="spec-value">High-Bay Logistics Bay 03</span>
+        </div>
+        <div class="project-spec-item">
+          <span class="spec-label">Cognitive Focus</span>
+          <span class="spec-value">Authority Deference Mitigation</span>
+        </div>
+        <div class="project-spec-item">
+          <span class="spec-label">Audit Framework</span>
+          <span class="spec-value">HASAW 1974 Principles</span>
+        </div>
+      </div>
+
+      <!-- Featured Simulation Highlights Grid -->
+      <div class="project-highlights-grid">
+        <div class="project-highlight-card">
+          <div class="highlight-badge-pill">
+            <span class="pulse-dot"></span>
+            <span>Dynamic Social Simulation</span>
+          </div>
+          <h3 class="highlight-title">Interactive NPC Supervisor AI</h3>
+          <p class="highlight-desc">
+            Encounter veteran supervisor Dave during live warehouse rounds. Trainees must critically evaluate dismissive advice and overcome natural workplace deference.
+          </p>
+        </div>
+        <div class="project-highlight-card">
+          <div class="highlight-badge-pill">
+            <span class="pulse-dot"></span>
+            <span>Browser-Native 3D</span>
+          </div>
+          <h3 class="highlight-title">Instanced Spatial Warehouse</h3>
+          <p class="highlight-desc">
+            High-performance WebGL rendering pipeline featuring instanced pallet racking, realistic chemical slip hazards, and complete 360-degree inspection angles.
+          </p>
+        </div>
+        <div class="project-highlight-card">
+          <div class="highlight-badge-pill">
+            <span class="pulse-dot"></span>
+            <span>Behavioral Telemetry</span>
+          </div>
+          <h3 class="highlight-title">Real-Time Assertiveness Scoring</h3>
+          <p class="highlight-desc">
+            Quantitative behavioral telemetry records decision latency, safety assertion adherence, and protocol compliance directly within the session state.
+          </p>
+        </div>
+      </div>
+
+      <!-- Promotional Video Showcase -->
+      <div class="video-showcase-wrapper" id="project-video">
+        <div class="video-showcase-header">
+          <div class="video-tag-pill">
+            <span class="pulse-dot"></span>
+            <span>PROMOTIONAL VIDEO SHOWCASE</span>
+          </div>
+          <h3 class="video-showcase-title">Experience Two Pairs of Eyes</h3>
+          <p class="video-showcase-subtitle">Step inside our interactive warehouse safety training experience.</p>
+          <div class="video-motto-badge">Two Pairs of Eyes — Fresh Eyes. Safer Choices.</div>
+        </div>
+
+        <div class="video-player-container glass-panel">
+          <div class="video-player-frame">
+            <div class="video-frame-topbar">
+              <div class="window-dots">
+                <span class="dot dot-red"></span>
+                <span class="dot dot-yellow"></span>
+                <span class="dot dot-green"></span>
+              </div>
+              <div class="video-frame-title">Two Pairs of Eyes — Official Simulation Walkthrough (1080p HD)</div>
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <button type="button" class="video-audio-toggle" id="btn-toggle-audio" title="Toggle audio on/off">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" id="audio-icon"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                  <span id="audio-label">Sound Muted</span>
+                </button>
+                <span class="video-badge-hd">HD 1080P</span>
+              </div>
+            </div>
+
+            <div class="video-aspect-wrapper">
+              <video
+                id="promo-video"
+                class="promotional-video-player"
+                controls
+                muted
+                playsinline
+                preload="metadata"
+                poster="assets/images/promo-poster.jpg"
+                aria-label="Two Pairs of Eyes promotional walkthrough video"
+              >
+                <source src="assets/videos/two-pairs-of-eyes-promo.mp4" type="video/mp4">
+                <p class="video-fallback-message">
+                  Your browser does not support HTML5 video playback.
+                  <a href="assets/videos/two-pairs-of-eyes-promo.mp4" download>Download the Two Pairs of Eyes promotional video</a>.
+                </p>
+              </video>
+
+              <!-- Graceful Error Fallback -->
+              <div class="video-error-fallback hidden" id="video-error-fallback">
+                <div class="error-fallback-content">
+                  <span class="error-icon">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                  </span>
+                  <h4>Unable to Play Promotional Video</h4>
+                  <p>The local video file could not be rendered by your browser. You can access the asset file directly below.</p>
+                  <a href="assets/videos/two-pairs-of-eyes-promo.mp4" class="btn btn-secondary btn-small" download>
+                    Download Promotional MP4 File
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- Quick Chapter Timestamps -->
+            <div class="video-quick-nav">
+              <span class="quick-nav-label">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                <span>Timeline Navigation:</span>
+              </span>
+              <div class="quick-nav-buttons">
+                <button type="button" class="chapter-chip-btn" data-time="0" title="Jump to start of warehouse walkthrough">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  <span>0:00 Aisle Inspection Patrol</span>
+                </button>
+                <button type="button" class="chapter-chip-btn" data-time="10" title="Jump to supervisor hazard confrontation">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                  <span>0:10 Supervisor Hazard Encounter</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4 Core Educational Learning Pillars -->
+        <div class="video-pillars-grid">
+          <div class="video-pillar-card">
+            <div class="pillar-top-row">
+              <span class="pillar-number">01 / DETECTION</span>
+              <span class="video-pillar-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              </span>
+            </div>
+            <h4 class="video-pillar-title">Identify Workplace Hazards</h4>
+            <p class="video-pillar-desc">
+              Scan high-bay aisles for unmarked chemical spills, misaligned pallets, and obscured emergency egress corridors before incidents escalate.
+            </p>
+          </div>
+
+          <div class="video-pillar-card">
+            <div class="pillar-top-row">
+              <span class="pillar-number">02 / EVALUATION</span>
+              <span class="video-pillar-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M6 8l6-3 6 3"/><path d="M6 8L3 14a3 3 0 0 0 6 0L6 8z"/><path d="M18 8l-3 6a3 3 0 0 0 6 0l-3-6z"/></svg>
+              </span>
+            </div>
+            <h4 class="video-pillar-title">Evaluate Supervisor Advice Critically</h4>
+            <p class="video-pillar-desc">
+              Recognize real-world authority pressure when senior colleagues dismiss critical safety protocols to prioritize shift throughput.
+            </p>
+          </div>
+
+          <div class="video-pillar-card">
+            <div class="pillar-top-row">
+              <span class="pillar-number">03 / INTERVENTION</span>
+              <span class="video-pillar-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              </span>
+            </div>
+            <h4 class="video-pillar-title">Make Safety Decisions</h4>
+            <p class="video-pillar-desc">
+              Assert independent professional judgement to cordon off hazards, alert shift leads, and log incidents without deferring to rank.
+            </p>
+          </div>
+
+          <div class="video-pillar-card">
+            <div class="pillar-top-row">
+              <span class="pillar-number">04 / REFLECTION</span>
+              <span class="video-pillar-icon" aria-hidden="true">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6"/><path d="M10 22h4"/><path d="M12 2a7 7 0 0 0-7 7c0 2.5 1.5 4.5 3 6h8c1.5-1.5 3-3.5 3-6a7 7 0 0 0-7-7z"/></svg>
+              </span>
+            </div>
+            <h4 class="video-pillar-title">Observe Consequences & Learn</h4>
+            <p class="video-pillar-desc">
+              Experience immediate cause-and-effect feedback, scoring telemetry, and compliance reflections that cement lasting safety habits.
+            </p>
+          </div>
+        </div>
+
+        <!-- Contextual Action CTAs -->
+        <div class="video-cta-group">
+          <a href="#case-study-interactive-screen" class="btn btn-secondary btn-large">
+            <span>Explore the Interactive Prototype</span>
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <a href="#contact" class="btn btn-primary btn-large">
+            <span>Request Academic Consultation</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="case-study-container glass-panel">
+        <div class="case-study-grid">
+          <div class="case-study-info">
+            <div class="case-tag">WAREHOUSE & LOGISTICS SAFETY CASE STUDY</div>
+            <h3 class="case-title">Challenging Dismissive Supervisors in High-Risk Walkthroughs</h3>
+            
+            <div class="challenge-solution-box">
+              <div class="cs-block">
+                <span class="cs-label text-amber">THE CLIENT CHALLENGE:</span>
+                <p>
+                  Junior warehouse trainees routinely noticed safety hazards (oil leaks, blocked fire routes) but failed to escalate them due to <strong>authority deference</strong> when walking with dismissive veteran supervisors.
+                </p>
+              </div>
+              <div class="cs-block">
+                <span class="cs-label text-cyan">THE TECHNOVA SOLUTION:</span>
+                <p>
+                  We built a zero-install 3D desktop simulation featuring dynamic NPC supervisor *Dave*. The simulator places trainees in interactive walkthroughs where they must diagnose hazards and actively push back against dismissive advice.
+                </p>
+              </div>
+            </div>
+
+            <div class="case-metrics-grid">
+              <div class="case-metric-card">
+                <span class="metric-val text-cyan">Dual View</span>
+                <span class="metric-desc">Trainee vs Supervisor Dynamic</span>
+              </div>
+              <div class="case-metric-card">
+                <span class="metric-val text-amber">0%</span>
+                <span class="metric-desc">Hardware Setup Friction</span>
+              </div>
+              <div class="case-metric-card">
+                <span class="metric-val text-blue">60 FPS</span>
+                <span class="metric-desc">Cross-Platform WebGL Performance</span>
+              </div>
+            </div>
+
+            <div class="case-actions">
+              <a href="#contact" class="btn btn-primary">Request Academic Consultation</a>
+              <span class="tech-stack-tag">Built with Three.js (WebGL) · Vite · Vanilla JS</span>
+            </div>
+          </div>
+
+          <div class="case-study-visual">
+            <div class="case-preview-frame">
+              <div class="frame-badge">
+                <span class="pulse-dot"></span>
+                <span>LIVE INTERACTIVE DECISION ENGINE</span>
+              </div>
+              <div class="mockup-screen" id="case-study-interactive-screen">
+                <div class="sim-overlay-hud">
+                  <div class="hud-top">
+                    <span class="hud-item"><span class="pulse-dot" style="display:inline-block;width:6px;height:6px;margin-right:4px;"></span>STOP 02: HIGH-BAY OIL SPILL</span>
+                    <span class="hud-item hud-timer" id="hud-timer">TIME: 01:24</span>
+                    <span class="hud-item hud-score-pill" id="hud-score-pill">SCORE: <strong id="hud-score">0</strong> / 25 PTS</span>
+                  </div>
+                  <div class="dialogue-box-mockup" id="dialogue-box-mockup">
+                    <div class="dialogue-speaker" id="hud-speaker">Supervisor Dave (12y Veteran):</div>
+                    <div class="dialogue-text" id="hud-dialogue">"Ah, don't worry about that small puddle. The night shift will mop it up. Let's keep moving!"</div>
+                  </div>
+                  <div class="hud-telemetry-box" id="hud-telemetry">
+                    <span class="telemetry-icon">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+                    </span>
+                    <span id="hud-telemetry-text">Authority Bias Pressure: Supervisor prioritizing shift dispatch over HASAW protocol.</span>
+                  </div>
+                  <div class="decision-options-mockup" id="decision-controls">
+                    <button type="button" class="decision-btn btn-unsafe" id="btn-choice-unsafe">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                      <span>Agree with Dave & Keep Walking</span>
+                      <span class="btn-point-penalty">-3 PTS</span>
+                    </button>
+                    <button type="button" class="decision-btn btn-safe" id="btn-choice-safe">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                      <span>Push Back: Cordon Off & Log Incident</span>
+                      <span class="btn-point-bonus">+5 PTS</span>
+                    </button>
+                    <button type="button" class="decision-btn btn-reset" id="btn-choice-reset" style="display: none;">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>
+                      <span>Reset Scenario & Try Alternate Choice</span>
+                    </button>
+                  </div>
+                </div>
+              </div>
+              <div class="frame-caption">
+                Interactive Working Prototype: Click the buttons above to test TechNova's real-time psychological assertion telemetry.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value Matrix / Why TechNova Section -->
+  <!-- Creative Comparison / The Modern Safety Paradigm Section -->
+  <section class="section comparison-section" id="technology">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">THE SAFETY EVOLUTION</div>
+        <h2 class="section-title">Beyond Boring Slides. Beyond Heavy VR Goggles.</h2>
+        <p class="section-subtitle">
+          Why forward-thinking safety leaders are replacing passive checkboxes and clunky headsets with lightweight, browser-native 3D simulations.
+        </p>
+      </div>
+
+      <div class="paradigm-grid">
+        <!-- Paradigm 1 -->
+        <div class="paradigm-card glass-panel paradigm-legacy">
+          <div class="paradigm-header">
+            <span class="paradigm-badge badge-legacy">PASSIVE CHECKBOXES</span>
+            <div class="paradigm-icon-box icon-rosy">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+                <polyline points="14 2 14 8 20 8"></polyline>
+                <line x1="16" y1="13" x2="8" y2="13"></line>
+                <line x1="16" y1="17" x2="8" y2="17"></line>
+                <polyline points="10 9 9 9 8 9"></polyline>
+              </svg>
+            </div>
+          </div>
+          <h3 class="paradigm-title">Legacy Slide LMS</h3>
+          <p class="paradigm-hook">"Passive completion without real-world retention."</p>
+          <p class="paradigm-body">
+            Static slides test multiple-choice recall rather than decision reflexes. Trainees memorize right answers for the test, but quickly defer to unsafe supervisor shortcuts on the actual warehouse floor.
+          </p>
+          <ul class="paradigm-points">
+            <li><span class="point-mark point-bad"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span> 70% knowledge decay within 48 hours</li>
+            <li><span class="point-mark point-bad"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span> Zero behavioral authority testing</li>
+            <li><span class="point-mark point-bad"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></span> Passive click-through engagement</li>
+          </ul>
+          <div class="paradigm-footer">
+            <span class="pill-verdict pill-danger">Fails Under Real Pressure</span>
+          </div>
+        </div>
+
+        <!-- Paradigm 2 -->
+        <div class="paradigm-card glass-panel paradigm-vr">
+          <div class="paradigm-header">
+            <span class="paradigm-badge badge-vr">HARDWARE-BOUND VR</span>
+            <div class="paradigm-icon-box icon-amber">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="2" y="7" width="20" height="11" rx="4"></rect>
+                <path d="M7 11h2v3H7z"></path>
+                <path d="M15 11h2v3h-2z"></path>
+                <path d="M10 18a2 2 0 0 0 4 0"></path>
+              </svg>
+            </div>
+          </div>
+          <h3 class="paradigm-title">Proprietary VR Goggles</h3>
+          <p class="paradigm-hook">"High spatial depth trapped behind hardware friction."</p>
+          <p class="paradigm-body">
+            Dedicated headsets offer visual immersion but fail operational scalability. Storing, charging, sanitizing, and troubleshooting expensive hardware creates friction that keeps devices locked in IT closets.
+          </p>
+          <ul class="paradigm-points">
+            <li><span class="point-mark point-warn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span> High hardware capex and upkeep</li>
+            <li><span class="point-mark point-warn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span> Battery, cleaning & pairing bottlenecks</li>
+            <li><span class="point-mark point-warn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg></span> Motion discomfort for distributed teams</li>
+          </ul>
+          <div class="paradigm-footer">
+            <span class="pill-verdict pill-warning">High Friction & Overhead</span>
+          </div>
+        </div>
+
+        <!-- Paradigm 3 -->
+        <div class="paradigm-card glass-panel paradigm-technova featured-paradigm">
+          <div class="paradigm-header">
+            <span class="paradigm-badge badge-technova">THE TECHNOVA STANDARD</span>
+            <div class="paradigm-icon-box icon-moss">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                <polyline points="2 17 12 22 22 17"></polyline>
+                <polyline points="2 12 12 17 22 12"></polyline>
+              </svg>
+            </div>
+          </div>
+          <h3 class="paradigm-title">Browser-Native 3D Web</h3>
+          <p class="paradigm-hook">"Zero-install scale with cognitive decision modeling."</p>
+          <p class="paradigm-body">
+            Interactive WebGL safety simulations running smoothly on existing workstations. We test psychological pushback against dismissive supervisors, streaming verifiable telemetry into your enterprise LMS.
+          </p>
+          <ul class="paradigm-points">
+            <li><span class="point-mark point-good"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> 100% browser-native single-click link</li>
+            <li><span class="point-mark point-good"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Dynamic supervisor bias & branching logic</li>
+            <li><span class="point-mark point-good"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span> Live xAPI / SCORM telemetry audit logs</li>
+          </ul>
+          <div class="paradigm-footer">
+            <span class="pill-verdict pill-success">Frictionless Enterprise Benchmark</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About TechNova / Enterprise Mission & Academic Project Background -->
+  <section class="section about-section" id="about">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">STUDENT ENTERPRISE · CET257 TASK B2</div>
+        <h2 class="section-title">Cognitive Science Meets Spatial Computing</h2>
+        <p class="section-subtitle">
+          Formed at the University of Sunderland for the CET257 Enterprise Project, TechNova bridges the critical gap between traditional regulatory compliance and real-world psychological decision-making on high-risk industrial floors.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-mission-card glass-panel">
+          <div class="mission-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="about-card-title">Our Enterprise Mission</h3>
+          <p class="about-card-text">
+            To reduce preventable workplace accidents by engineering accessible, browser-first 3D simulations that actively test and dismantle <strong>authority bias</strong>, <strong>risk normalization</strong>, and <strong>complacency</strong> before employees step onto active operational floors.
+          </p>
+        </div>
+
+        <div class="about-mission-card glass-panel">
+          <div class="mission-icon">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <h3 class="about-card-title">Our Core Value Pillars</h3>
+          <ul class="about-values-list">
+            <li><strong>Zero Hardware Barriers:</strong> Universal WebGL delivery requiring zero expensive VR headsets or local IT installs.</li>
+            <li><strong>Behavioral Fidelity:</strong> Rooted in HCI and Human Factors research to model nuanced interpersonal pressure.</li>
+            <li><strong>Academic Integrity:</strong> Developed under University of Sunderland CET257 assessment criteria to demonstrate rigorous software engineering and marketing communication.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team & Leadership Credentials Section -->
+  <section class="section team-section" id="team">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-badge">OUR ENGINEERING & LEADERSHIP TEAM</div>
+        <h2 class="section-title">The Minds Behind TechNova</h2>
+        <p class="section-subtitle">
+          A dedicated team of software architects, HCI researchers, and 3D simulation specialists committed to engineering transformative safety technology.
+        </p>
+      </div>
+
+      <div class="team-grid">
+        <!-- Member 1 -->
+        <div class="team-card glass-panel">
+          <div class="team-avatar">
+            <div class="avatar-initials">RP</div>
+          </div>
+          <h3 class="team-name">Rachana Paudel</h3>
+          <div class="team-role text-cyan">Project Director & Product Lead</div>
+          <p class="team-bio">
+            Spearheads client engagement, commercial roadmaps, and agile sprint delivery for enterprise software deployments.
+          </p>
+          <div class="team-tags">
+            <span>Project Management</span>
+            <span>Client Relations</span>
+          </div>
+        </div>
+
+        <!-- Member 2 -->
+        <div class="team-card glass-panel">
+          <div class="team-avatar">
+            <div class="avatar-initials">KG</div>
+          </div>
+          <h3 class="team-name">Kisan K. Gupta</h3>
+          <div class="team-role text-cyan">Lead Systems Developer & Architect</div>
+          <p class="team-bio">
+            Architect of the decoupled state machine engine, scenario logic loops, and high-performance WebGL rendering pipelines.
+          </p>
+          <div class="team-tags">
+            <span>Systems Architecture</span>
+            <span>WebGL / Engine</span>
+          </div>
+        </div>
+
+        <!-- Member 3 -->
+        <div class="team-card glass-panel">
+          <div class="team-avatar">
+            <div class="avatar-initials">RB</div>
+          </div>
+          <h3 class="team-name">Rupesh Bashyal</h3>
+          <div class="team-role text-cyan">UI/UX & 3D Spatial Specialist</div>
+          <p class="team-bio">
+            Designs high-contrast HUDs, 3D warehouse mesh pipelines, character rigging, and immersive spatial user experiences.
+          </p>
+          <div class="team-tags">
+            <span>3D Spatial Design</span>
+            <span>UI/UX Systems</span>
+          </div>
+        </div>
+
+        <!-- Member 4 -->
+        <div class="team-card glass-panel">
+          <div class="team-avatar">
+            <div class="avatar-initials">AN</div>
+          </div>
+          <h3 class="team-name">Anupa Neupane</h3>
+          <div class="team-role text-cyan">HCI Researcher & Content Lead</div>
+          <p class="team-bio">
+            Leads PACT framework analyses, behavioral psychology models, authority bias research, and scenario authoring.
+          </p>
+          <div class="team-tags">
+            <span>HCI Frameworks</span>
+            <span>Behavioral Psychology</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- B2B Lead Capture / Contact Section -->
+  <section class="section contact-section" id="contact">
+    <div class="container">
+      <div class="contact-wrapper glass-panel">
+        <div class="contact-grid">
+          <div class="contact-info">
+            <div class="section-badge">SCHEDULE A CONSULTATION</div>
+            <h2 class="contact-title">Transform Your Workforce Safety Training</h2>
+            <p class="contact-desc">
+              Speak with our software engineers and simulation experts to see how a tailored 3D WebGL simulator can modernize your facility's safety onboarding and audit readiness.
+            </p>
+
+            <div class="contact-perks">
+              <div class="perk-item">
+                <span class="perk-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                <span>Interactive 3D proof-of-concept walkthrough</span>
+              </div>
+              <div class="perk-item">
+                <span class="perk-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                <span>Behavioral authority bias scenario exploration</span>
+              </div>
+              <div class="perk-item">
+                <span class="perk-icon">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+                </span>
+                <span>Direct consultation with student engineering team</span>
+              </div>
+            </div>
+
+            <div class="corporate-contact-details">
+              <div class="detail-row">
+                <span class="detail-label">Team Inquiries:</span>
+                <span class="detail-val">student-team@sunderland.ac.uk</span>
+              </div>
+              <div class="detail-row">
+                <span class="detail-label">Affiliation:</span>
+                <span class="detail-val">University of Sunderland (CET257 Task B2)</span>
+              </div>
+            </div>
+
+            <div class="config-note-box" style="margin-top: 18px; padding: 12px 14px; background: var(--bg-surface-elevated); border: 1px solid var(--border-subtle); border-radius: var(--radius-sm); font-size: 0.78rem; color: var(--text-muted); line-height: 1.45;">
+              <strong style="color: var(--text-heading); display: block; margin-bottom: 4px;">Academic Hand-In Notice:</strong>
+              TechNova is an enterprise project developed for University of Sunderland CET257 Assessment 2. Submitting below compiles a functional email draft to the student team rather than simulating unverified server storage.
+            </div>
+          </div>
+
+          <div class="contact-form-container">
+            <form id="b2b-lead-form" class="lead-form">
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="client-name">Full Name *</label>
+                  <input type="text" id="client-name" required placeholder="e.g., Sarah Jenkins">
+                </div>
+                <div class="form-field">
+                  <label for="client-email">Work Email *</label>
+                  <input type="email" id="client-email" required placeholder="sarah@logistics-enterprise.com">
+                </div>
+              </div>
+
+              <div class="form-row">
+                <div class="form-field">
+                  <label for="client-company">Company / Organization *</label>
+                  <input type="text" id="client-company" required placeholder="e.g., Apex Global Supply Chain">
+                </div>
+                <div class="form-field">
+                  <label for="client-industry">Industry Sector</label>
+                  <select id="client-industry" class="form-select">
+                    <option value="logistics">Warehousing & Logistics</option>
+                    <option value="manufacturing">Advanced Manufacturing</option>
+                    <option value="construction">Construction & Infrastructure</option>
+                    <option value="ehs_consulting">EHS & Safety Consulting</option>
+                    <option value="other">Other High-Risk Industry</option>
+                  </select>
+                </div>
+              </div>
+
+              <div class="form-field">
+                <label for="client-message">Project Scope & Training Objectives</label>
+                <textarea id="client-message" rows="4" placeholder="Describe your safety compliance goals, facility size, or target hazard scenarios..."></textarea>
+              </div>
+
+              <button type="submit" class="btn btn-primary btn-large btn-block" id="btn-submit-lead">
+                <span>Draft Consultation Enquiry</span>
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              </button>
+
+              <div id="form-feedback" class="form-feedback hidden"></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <div class="footer-brand">
+        <a href="#hero" class="brand-logo footer-logo-link" style="margin-bottom: 14px;" aria-label="TechNova Solutions Home">
+          <img src="technova-logo-dark.svg" alt="TechNova Solutions Logo" class="brand-logo-img footer-logo-img" width="165" height="48" />
+        </a>
+        <p class="footer-desc">
+          Pioneering Interactive 3D & Cognitive Simulation for Enterprise Safety and Performance.
+        </p>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Navigation</h4>
+        <a href="#services">Services</a>
+        <a href="#project-video">Promotional Video</a>
+        <a href="#case-study">Case Studies</a>
+        <a href="#technology">Technology Matrix</a>
+        <a href="#team">Leadership Team</a>
+      </div>
+
+      <div class="footer-links-group">
+        <h4>Standards & Rigour</h4>
+        <span>CET257 Task B2 Project Standard</span>
+        <span>Local Session Privacy (Zero Trackers)</span>
+        <span>Planned LMS Architecture (xAPI / SCORM)</span>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div class="container footer-bottom-flex">
+        <div>&copy; 2026 TechNova Student Enterprise Team · University of Sunderland CET257 Enterprise Project. All rights reserved.</div>
+        <div class="footer-legal">
+          <a href="#about">Project Mission</a>
+          <a href="#case-study">Safety Simulator</a>
+          <a href="#contact">Contact Team</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
