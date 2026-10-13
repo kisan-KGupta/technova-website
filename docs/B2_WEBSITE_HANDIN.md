@@ -84,9 +84,16 @@ Before final live hosting deployment to an institutional or public web host (e.g
    Update `student-team@sunderland.ac.uk` in `app.js` (line 551) and `index.html` (line 672) to the team's official verified module submission mailbox.
 2. **Production Asset Paths:**  
    Confirm that server MIME types correctly serve `.mp4` as `video/mp4` and `.svg` as `image/svg+xml`.
-3. **Verified Live Website URL:**  
-   *(To be recorded by the team upon hosting upload)*  
-   `[ PENDING DEPLOYMENT — Insert Live URL here, e.g., https://technova-cet257.github.io ]`
+3. **GitHub Repository:**  
+   `https://github.com/kisan-KGupta/technova-website` (Branches: `main`, `feat/b2-promotional-video`)
+4. **Vercel Deployment Guide:**  
+   - Visit [vercel.com/new](https://vercel.com/new)
+   - Import Git Repository: `kisan-KGupta/technova-website`
+   - Framework Preset: **Other** (Static HTML)
+   - Root Directory: `./`
+   - Click **Deploy**
+5. **Verified Live Website URL:**  
+   *(Record final Vercel deployment URL here, e.g., `https://technova-website.vercel.app`)*
 
 ---
 
